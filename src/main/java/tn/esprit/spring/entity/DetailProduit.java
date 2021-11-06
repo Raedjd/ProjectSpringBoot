@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,7 +27,9 @@ public class DetailProduit implements Serializable {
     private Date dateDerniereModification;
 
     private CategorieProduit categorieProduit;
-
+    
+    @OneToOne(mappedBy="detailProduit")
+    private Produit produit;
 	public DetailProduit(Date dateCreation, Date dateDerniereModification, CategorieProduit categorieProduit) {
 		super();
 		this.dateCreation = dateCreation;

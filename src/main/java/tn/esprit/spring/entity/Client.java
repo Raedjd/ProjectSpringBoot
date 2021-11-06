@@ -2,11 +2,16 @@ package tn.esprit.spring.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,12 +28,18 @@ public class Client implements Serializable {
      
      @Temporal(TemporalType.DATE)
 //   @Temporal(TemporalType.TIMESTAMP)
-     Date dateNaissance;
-     String email;
-     String password;
-     CategorieClient categorieClient;
-     Profession proffesion;
-	public Client(String nom, String prenom, Date dateNaissance, String email, String password,
+     private Date dateNaissance;
+     private String email;
+     private String password;
+     @Enumerated(EnumType.STRING)
+     private CategorieClient categorieClient;
+     @Enumerated(EnumType.STRING)
+     private Profession proffesion;
+     
+     @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
+	  private Set<Facture> facture;
+     
+	 public Client(String nom, String prenom, Date dateNaissance, String email, String password,
 			CategorieClient categorieClient, Profession proffesion) {
 		super();
 		this.nom = nom;
@@ -39,6 +50,9 @@ public class Client implements Serializable {
 		this.categorieClient = categorieClient;
 		this.proffesion = proffesion;
 	}
+	
+	
+	
 	public Long getIdClient() {
 		return idClient;
 	}

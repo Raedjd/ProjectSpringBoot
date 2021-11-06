@@ -1,12 +1,20 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="TABLE_PRODUIT")
@@ -22,6 +30,26 @@ public class Produit implements Serializable  {
      private String libelle;
 	 @Column(name="PRIX_UNITAIRE")
      private float prixUnitaire;
+	 
+	 @OneToOne
+	 @JoinColumn(name = "idDetailProduit")
+	 private DetailProduit detailProduit;
+	 
+	  @ManyToOne()
+	  @JoinColumn(name = "idStock")
+	  private Stock stock;
+	  
+	  @ManyToOne()
+	  @JoinColumn(name = "idRayon") 
+	  private Rayon rayon;
+	 
+	  @OneToMany(cascade = CascadeType.ALL, mappedBy="produit")
+	  private Set<DetailFacture> detailFacture;
+	  
+	  @ManyToMany(cascade = CascadeType.ALL)
+	  @JoinTable(name="TABLE_PRODUIT_FOURNISSEUR")
+	  private Set<Fournisseur> fournisseur;
+	  
 	public Produit(String code, String libelle, float prixUnitaire) {
 		super();
 		this.code = code;

@@ -1,11 +1,14 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,10 @@ public class Rayon  implements Serializable {
 		this.code = code;
 		this.libelle = libelle;
 	}
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="rayon")
+    private Set<Produit> Produit;
+	
 	public Long getIdRayon() {
 		return idRayon;
 	}
