@@ -16,19 +16,35 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+ 
 @Entity
+//ANNOTATION LOMBOK
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
+//@Data
 @Table(name="TABLE_FACTURE")
 public class Facture implements Serializable {
-
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFacture;
-
+    @NonNull
     private float montantRemise;
+    @NonNull
     private float montantFacture;
-
     @Temporal(TemporalType.DATE)
+    @NonNull
     private Date dateFacture;
+    @NonNull
     private Boolean active;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy="facture")
@@ -37,7 +53,7 @@ public class Facture implements Serializable {
     @ManyToOne()
 	@JoinColumn(name = "idClient")
 	private Client client;
-    
+   /* 
 	public Facture(float montantRemise, float montantFacture, Date dateFacture, Boolean active) {
 		super();
 		this.montantRemise = montantRemise;
@@ -75,5 +91,5 @@ public class Facture implements Serializable {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-    
+    */
 }

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 public class Produit implements Serializable  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	 
 	 @Column(name="ID_PRODUIT")
 	 private Long idProduit;
 	 @Column(name="CODE")

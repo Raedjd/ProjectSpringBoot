@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="TABLE_CLIENT")
 public class Client implements Serializable {
-
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long idClient;

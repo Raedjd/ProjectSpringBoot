@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="TABLE_DETAIL_PRODUIT")
 public class DetailProduit implements Serializable {
-
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetailProduit;

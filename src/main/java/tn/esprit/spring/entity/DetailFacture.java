@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="TABLE_DETAIL_FACTURE")
 public class DetailFacture implements Serializable {
-
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetailFacture;
