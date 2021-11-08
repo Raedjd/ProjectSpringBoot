@@ -41,10 +41,5 @@ public class ClientServiceImplTest {
 	       assertTrue(savedClient.getNom().length() >0);
 	       iclientService.delete(savedClient.getIdClient()); //for best practice
 	    }
-	   /*
-	   @Test
-	    public void testListClient() {
-	        iclientService.findAll()
-	                .forEach( client -> log.info("Client :"+ client));
-	    }  */
+	 
 }
