@@ -33,7 +33,7 @@ public class ClientServiceImplTest {
 	        int expected = clients.size();
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	        Date dateNais= dateFormat.parse("07/11/1996");
-	        Client client = new Client("RAED", "JAIDI",dateNais, "raed;jaidi@esprit.tn", "000000", CategorieClient.Fidele,Profession.Ingenieur);
+	        Client client = new Client("RAED", "JAIDI",dateNais, "raed.jaidi@esprit.tn", "000000", CategorieClient.Fidele,Profession.Ingenieur);
 	        Client savedClient = iclientService.add(client);
 	        assertEquals(expected + 1, iclientService.findAll().size());
 	        assertNotNull(savedClient.getNom());
