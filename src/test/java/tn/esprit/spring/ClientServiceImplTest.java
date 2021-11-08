@@ -25,23 +25,26 @@ import static org.junit.Assert.*;
 @Slf4j
 public class ClientServiceImplTest {
 	@Autowired
-    private IClientService iclientService;
+    IClientService iclientService;
 	
 	   @Test
-	    public void testAddClient() throws ParseException {
-	        List<Client> clients = iclientService.findAll();
-	        int expected = clients.size();
+	    public void testAdd() throws ParseException {
+	    //    List<Client> clients = iclientService.findAll();
+	    
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	        Date dateNais= dateFormat.parse("07/11/1996");
 	        Client client = new Client("RAED", "JAIDI",dateNais, "raed.jaidi@esprit.tn", "000000", CategorieClient.Fidele,Profession.Ingenieur);
 	        Client savedClient = iclientService.add(client);
-	        assertEquals(expected + 1, iclientService.findAll().size());
-	        assertNotNull(savedClient.getNom());
-	        iclientService.delete(savedClient.getIdClient());
+	   
+	       assertNotNull(savedClient.getIdClient());
+	       assertNotNull(savedClient.getDateNaissance());
+	       assertTrue(savedClient.getNom().length() >0);
+	       iclientService.delete(savedClient.getIdClient()); //for best practice
 	    }
+	   /*
 	   @Test
 	    public void testListClient() {
 	        iclientService.findAll()
 	                .forEach( client -> log.info("Client :"+ client));
-	    }
+	    }  */
 }

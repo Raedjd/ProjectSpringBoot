@@ -1,25 +1,25 @@
 package tn.esprit.spring.service.client;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.repository.ClientRepository;
-
 @Service
+@Slf4j
 public class ClientServiceImpl implements IClientService {
 
 	@Autowired
 	private ClientRepository  clientRepository ;
 
 	@Override
-	public Client add(Client client) {
-		// TODO Auto-generated method stub
+	public Client add(Client client) { 
+		log.info("In methode addClient");
 		return clientRepository.save(client);
-
+		
 	}
 
 	@Override
@@ -30,9 +30,10 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		log.info("In methode deleteClient");
+	    log.warn("Attendion! vous etes en train de supprimer un client");
 		clientRepository.deleteById(id);
-		
+		log.error("Exeption!");
 	}
 
 	@Override
