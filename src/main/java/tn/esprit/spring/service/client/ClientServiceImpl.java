@@ -21,7 +21,7 @@ public class ClientServiceImpl implements IClientService {
 		return clientRepository.save(client);
 		
 	}
-
+ 
 	@Override
 	public Client update(Client client, Long id) {
 		// TODO Auto-generated method stub
