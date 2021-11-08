@@ -30,7 +30,7 @@ public class ClientServiceImplTest {
 	   @Test
 	    public void testAdd() throws ParseException {
 	    //    List<Client> clients = iclientService.findAll();
-	    
+	     
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	        Date dateNais= dateFormat.parse("07/11/1996");
 	        Client client = new Client("RAED", "JAIDI",dateNais, "raed.jaidi@esprit.tn", "000000", CategorieClient.Fidele,Profession.Ingenieur);
