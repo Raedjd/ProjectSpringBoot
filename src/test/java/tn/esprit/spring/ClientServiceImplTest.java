@@ -1,3 +1,4 @@
+
 package tn.esprit.spring;
 
 
@@ -33,13 +34,13 @@ public class ClientServiceImplTest {
 	     
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	        Date dateNais= dateFormat.parse("07/11/1996");
-	        Client client = new Client("RAED", "JAIDI",dateNais, "raed.jaidi@esprit.tn", "000000", CategorieClient.Fidele,Profession.Ingenieur);
+	        Client client = new Client("RAED", "JAIDI",dateNais, "raed.jaidi@esprit.tn", "000000", CategorieClient.Fidele, Profession.Ingenieur);
 	        Client savedClient = iclientService.add(client);
 	   
 	       assertNotNull(savedClient.getIdClient());
 	       assertNotNull(savedClient.getDateNaissance());
 	       assertTrue(savedClient.getNom().length() >0);
-	       iclientService.delete(savedClient.getIdClient()); //for best practice
+	      // iclientService.delete(savedClient.getIdClient()); //for best practice
 	    }
 	 
 }

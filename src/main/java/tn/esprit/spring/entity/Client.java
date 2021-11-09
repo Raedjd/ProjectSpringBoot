@@ -34,13 +34,13 @@ public class Client implements Serializable {
      @Enumerated(EnumType.STRING)
      private CategorieClient categorieClient;
      @Enumerated(EnumType.STRING)
-     private Profession proffesion;
-     
+     private Profession profesion;
+      
      @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
 	  private Set<Facture> facture;
-     
+     public Client() {};
 	 public Client(String nom, String prenom, Date dateNaissance, String email, String password,
-			CategorieClient categorieClient, Profession proffesion) {
+			CategorieClient categorieClient, Profession profesion) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -48,7 +48,7 @@ public class Client implements Serializable {
 		this.email = email;
 		this.password = password;
 		this.categorieClient = categorieClient;
-		this.proffesion = proffesion;
+		this.profesion = profesion;
 	}
 	
 	
@@ -95,11 +95,11 @@ public class Client implements Serializable {
 	public void setCategorieClient(CategorieClient categorieClient) {
 		this.categorieClient = categorieClient;
 	}
-	public Profession getProffesion() {
-		return proffesion;
+	public Profession getProfesion() {
+		return profesion;
 	}
-	public void setProffesion(Profession proffesion) {
-		this.proffesion = proffesion;
+	public void setProfesion(Profession proffesion) {
+		this.profesion = proffesion;
 	}
      
 }
