@@ -24,7 +24,7 @@ public class DetailFactureRestController {
 	public DetailFactureRestController() {
 		// TODO Auto-generated constructor stub
 	}
-	@Autowired
+	@Autowired 
     IDetailFactureService idetailFactureService;
 	
 	@RequestMapping("/")
@@ -39,7 +39,7 @@ public class DetailFactureRestController {
         return idetailFactureService.findById(id);
           }
 	
-	 @PostMapping("/addfacture")
+	 @PostMapping("/adddetfacture")
 	 @ResponseBody
 	    public DetailFacture add(@Valid @RequestBody DetailFacture facture) {
 		 DetailFacture fact = idetailFactureService.add(facture);

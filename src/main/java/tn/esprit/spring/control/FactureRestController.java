@@ -41,8 +41,8 @@ public class FactureRestController {
        return iproduitService.findById(id);
          }
 	
-	
-	 @PostMapping("/addClient")
+	 
+	 @PostMapping("/addfacture")
 	 @ResponseBody
 	    public Produit add(@Valid @RequestBody Produit produit) {
 	        Produit prod = iproduitService.add(produit);

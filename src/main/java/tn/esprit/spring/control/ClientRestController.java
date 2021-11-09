@@ -23,7 +23,7 @@ public class ClientRestController {
 	public ClientRestController() {
 		// TODO Auto-generated constructor stub
 	}
-      
+       
 	@Autowired
      IClientService iclientService;
 	
@@ -41,7 +41,7 @@ public class ClientRestController {
           }
 	
 	
-	 @PostMapping("/addClient")
+	 @PostMapping("/addclient")
 	 @ResponseBody
 	    public Client add(@Valid @RequestBody Client client) {
 	        Client c = iclientService.add(client);

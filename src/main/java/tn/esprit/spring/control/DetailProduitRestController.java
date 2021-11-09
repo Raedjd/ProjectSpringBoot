@@ -48,7 +48,7 @@ public class DetailProduitRestController {
 		 DetailProduit detprod = idetailProduitService.add(detproduit);
 	        return detprod;
 	    }
-	 
+	  
 	 @PutMapping("/update/{id}")
 	 @ResponseBody
 	    public DetailProduit modify(@Valid @RequestBody DetailProduit detproduit,@PathVariable("id") Long id) {

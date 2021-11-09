@@ -40,7 +40,7 @@ public class RayonRestController {
 	@ResponseBody
     public Rayon findById(@PathVariable("id") Long id) {
         return iRayonService.findById(id);
-          }
+          } 
 	
 	 @PostMapping("/addrayon")
 	 @ResponseBody

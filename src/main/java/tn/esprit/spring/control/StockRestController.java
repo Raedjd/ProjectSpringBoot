@@ -40,7 +40,7 @@ public class StockRestController {
         return iStockService.findById(id);
           }
 	
-	 @PostMapping("/addrayon")
+	 @PostMapping("/addstock")
 	 @ResponseBody
 	    public Stock  add(@Valid @RequestBody Stock  stock) {
 		 Stock  stoc= iStockService.add(stock);

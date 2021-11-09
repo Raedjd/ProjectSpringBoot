@@ -46,7 +46,7 @@ public class ProduitRestController {
 		 Produit prod = iProduitService.add(produit);
 	        return prod;
 	    }
-	 
+	  
 	 @PutMapping("/update/{id}")
 	 @ResponseBody
 	    public Produit modify(@Valid @RequestBody Produit produit,@PathVariable("id") Long id) {
