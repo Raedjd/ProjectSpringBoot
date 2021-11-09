@@ -40,7 +40,7 @@ public class ClientServiceImplTest {
 	       assertNotNull(savedClient.getIdClient());
 	       assertNotNull(savedClient.getDateNaissance());
 	       assertTrue(savedClient.getNom().length() >0);
-	      // iclientService.delete(savedClient.getIdClient()); //for best practice
+	       iclientService.delete(savedClient.getIdClient()); //for best practice
 	    }
 	 
 }
