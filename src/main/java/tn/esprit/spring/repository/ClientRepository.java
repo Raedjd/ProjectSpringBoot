@@ -17,7 +17,7 @@ import tn.esprit.spring.entity.Profession;
 @Repository
 public interface ClientRepository extends JpaRepository <Client,Long> {
 /*
-	//JPQL SELECT
+	//JPQL SELECT  
 	@Query("SELECT c FROM Client c WHERE c.profession= :profession")
 	List<Client> retrieveClientsByProfession(@Param("profession") Profession profession); 
 	

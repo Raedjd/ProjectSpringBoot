@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entity.DetailProduit;
 @Repository
 public interface DetailProduitRepository extends JpaRepository <DetailProduit,Long> {
-
+ 
 }

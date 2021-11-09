@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entity.Facture;
 @Repository
 public interface FactureRepository extends JpaRepository <Facture,Long> {
-
+ 
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entity.Produit;
 @Repository
 public interface ProduitRepository extends JpaRepository <Produit,Long> {
-
+ 
 }

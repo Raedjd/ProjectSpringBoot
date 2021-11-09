@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entity.Stock;
 @Repository
 public interface StockRepository extends JpaRepository <Stock,Long> {
-
+ 
 }

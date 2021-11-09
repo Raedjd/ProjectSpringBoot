@@ -8,5 +8,5 @@ import tn.esprit.spring.entity.DetailFacture;
 
 @Repository
 public interface DetailFactureRepository extends JpaRepository <DetailFacture,Long> {
-
+ 
 }
