@@ -50,7 +50,8 @@ public class Produit implements Serializable  {
 	  @JoinTable(name="TABLE_PRODUIT_FOURNISSEUR")
 	  private Set<Fournisseur> fournisseur;
 	  
-	public Produit(String code, String libelle, float prixUnitaire) {
+	  public Produit() {};
+	  public Produit(String code, String libelle, float prixUnitaire) {
 		super();
 		this.code = code;
 		this.libelle = libelle;

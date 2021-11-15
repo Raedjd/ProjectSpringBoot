@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
 import tn.esprit.spring.entity.Client;
+import tn.esprit.spring.service.client.ClientServiceImpl;
 import tn.esprit.spring.service.client.IClientService;
 
 @RestController
 @RequestMapping("/client")
+@Slf4j
 public class ClientRestController {
 
 	public ClientRestController() {
@@ -40,12 +45,19 @@ public class ClientRestController {
         return iclientService.findById(id);
           }
 	
+	@GetMapping("/list")
+	@ResponseBody
+    public List<Client> list() {
+        return iclientService.findAll();
+          }
+	
 	
 	 @PostMapping("/addclient")
 	 @ResponseBody
 	    public Client add(@Valid @RequestBody Client client) {
 	        Client c = iclientService.add(client);
-	        return c;
+	         return c;
+	        
 	    }
 	 
 	 @PutMapping("/update/{id}")

@@ -54,6 +54,7 @@ public class Facture implements Serializable {
 	@JoinColumn(name = "idClient")
 	private Client client;
    /* 
+    public Facture() {};
 	public Facture(float montantRemise, float montantFacture, Date dateFacture, Boolean active) {
 		super();
 		this.montantRemise = montantRemise;

@@ -30,6 +30,7 @@ public class DetailProduit implements Serializable {
     
     @OneToOne(mappedBy="detailProduit")
     private Produit produit;
+    public DetailProduit() {};
 	public DetailProduit(Date dateCreation, Date dateDerniereModification, CategorieProduit categorieProduit) {
 		super();
 		this.dateCreation = dateCreation;

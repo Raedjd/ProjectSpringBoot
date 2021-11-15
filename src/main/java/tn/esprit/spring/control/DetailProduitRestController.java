@@ -1,3 +1,4 @@
+/*
 package tn.esprit.spring.control;
 
 
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.esprit.spring.entity.DetailFacture;
 import tn.esprit.spring.entity.DetailProduit;
-import tn.esprit.spring.service.detailFacture.IDetailFactureService;
 import tn.esprit.spring.service.detailProduit.IDetailProduitService;
 
 @RestController
@@ -44,15 +43,15 @@ public class DetailProduitRestController {
 	
 	 @PostMapping("/adddetproduit")
 	 @ResponseBody
-	    public DetailProduit add(@Valid @RequestBody DetailProduit detproduit) {
-		 DetailProduit detprod = idetailProduitService.add(detproduit);
+	    public DetailProduit add(@Valid @RequestBody DetailProduit detailProduit) {
+		 DetailProduit detprod = idetailProduitService.add(detailProduit);
 	        return detprod;
 	    }
 	  
 	 @PutMapping("/update/{id}")
 	 @ResponseBody
-	    public DetailProduit modify(@Valid @RequestBody DetailProduit detproduit,@PathVariable("id") Long id) {
-	        return idetailProduitService.update(detproduit, id);
+	    public DetailProduit modify(@Valid @RequestBody DetailProduit detailProduit,@PathVariable("id") Long id) {
+	        return idetailProduitService.update(detailProduit, id);
 	    }
 	   @DeleteMapping("delete/{id}")
 	   @ResponseBody
@@ -60,4 +59,4 @@ public class DetailProduitRestController {
 		   idetailProduitService.delete(id);
 	    }
 
-}
+} */

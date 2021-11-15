@@ -25,6 +25,7 @@ public class Stock implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy="stock")
     private Set<Produit> Produit;
     
+    public Stock() {};
 	public Stock(int qte, int qteMin, String libelleStock) {
 		super();
 		this.qte = qte;

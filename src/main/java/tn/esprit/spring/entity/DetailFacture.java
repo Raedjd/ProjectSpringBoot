@@ -30,7 +30,7 @@ public class DetailFacture implements Serializable {
       @ManyToOne()
 	  @JoinColumn(name = "idFacture")
 	  private Facture facture;
-    
+      public DetailFacture() {};
 	public DetailFacture(int qte, float prixtotal, int pourcentageRemise, float montantRemise) {
 		super();
 		this.qte = qte;

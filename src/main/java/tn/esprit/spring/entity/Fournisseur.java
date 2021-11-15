@@ -24,6 +24,7 @@ public class Fournisseur  implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy="fournisseur")
     private Set<Produit> produit;
     
+    public Fournisseur() {};
 	public Fournisseur(String code, String libelle) {
 		super();
 		this.code = code;

@@ -45,6 +45,6 @@ public class ClientServiceImpl implements IClientService {
 	@Override
 	public Client findById(Long id) {
 		// TODO Auto-generated method stub
-		 return clientRepository.getOne(id);
+		 return clientRepository.findById(id).get();
 	}
 }

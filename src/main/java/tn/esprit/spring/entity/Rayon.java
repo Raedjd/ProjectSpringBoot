@@ -28,7 +28,13 @@ public class Rayon  implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="rayon")
     private Set<Produit> Produit;
-	
+	public Rayon() {};
+	public Rayon(String code, String libelle, Set<tn.esprit.spring.entity.Produit> produit) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		Produit = produit;
+	}
 	public Long getIdRayon() {
 		return idRayon;
 	}
