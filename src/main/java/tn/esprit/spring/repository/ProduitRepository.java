@@ -12,7 +12,7 @@ import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.entity.Stock;
 @Repository
 public interface ProduitRepository extends JpaRepository <Produit,Long> {
-	
+	 
 	  //JPQL
 	   @Query(value ="SELECT (" +"SELECT sum(df.qte)FROM DetailFacture df  WHERE df.produit.idProduit = ?1" +") "
 	   		+ "AS  qte " +"FROM DetailProduit dp  " +"WHERE dp.dateCreation BETWEEN ?2 AND ?3 ")
