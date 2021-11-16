@@ -12,4 +12,4 @@ import tn.esprit.spring.entity.Stock;
 public interface StockRepository extends JpaRepository <Stock,Long> {
  
 	
-}
+} 
