@@ -19,7 +19,7 @@ import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.entity.Fournisseur;
 import tn.esprit.spring.service.client.IClientService;
 import tn.esprit.spring.service.fournisseur.IFournisseurService;
-
+ 
 @RestController
 @RequestMapping("/fournisseur")
 public class FournisseurRestController {

@@ -20,7 +20,7 @@ import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.entity.Rayon;
 import tn.esprit.spring.service.produit.IProduitService;
 import tn.esprit.spring.service.rayon.IRayonService;
-
+ 
 @RestController
 @RequestMapping("/rayon")
 public class RayonRestController {
