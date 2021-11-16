@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entity.CategorieClient;
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.entity.Profession;
-
+ 
 @Repository
 public interface ClientRepository extends JpaRepository <Client,Long> {
 	
