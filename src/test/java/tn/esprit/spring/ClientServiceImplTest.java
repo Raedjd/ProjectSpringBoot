@@ -42,7 +42,7 @@ public class ClientServiceImplTest {
 	       assertNotNull(savedClient.getDateNaissance());
 	       assertTrue(savedClient.getNom().length() >0);
 	       iclientService.delete(savedClient.getIdClient()); //FOR BEST PRACTICE
-	    }
+	    } 
 	   @Test
 	    public void testGetChiffreAffaireParCategorieClient() {
 	        log.info(" chiifre = " + iclientService.getChiffreAffaireParCategorieClient(CategorieClient.Fidele, new Date(100, Calendar.NOVEMBER, 15), new Date(150, Calendar.NOVEMBER,15)));
