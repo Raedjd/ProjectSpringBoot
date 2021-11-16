@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,12 @@ public class FournisseurRestController {
 		public String welcome() { 
 			return "Bonjour, Bienvenue à l'application de test des Web Services";
 		}
+		
+		@GetMapping("/listfournisseur")
+		@ResponseBody
+	    public List<Fournisseur> list() {
+	        return ifournisseurService.findAll();
+	          }
 		
 		
 		@GetMapping("/findById/{id}")

@@ -1,7 +1,9 @@
 package tn.esprit.spring.service.client;
 
+import java.util.Date;
 import java.util.List;
 
+import tn.esprit.spring.entity.CategorieClient;
 import tn.esprit.spring.entity.Client;
 
 public interface IClientService {
@@ -11,4 +13,5 @@ public interface IClientService {
 	    void delete(long id);
 	    List<Client> findAll();
 	    Client findById(Long id);
+	    float getChiffreAffaireParCategorieClient(CategorieClient categorieClient, Date startDate, Date endDate);
 }

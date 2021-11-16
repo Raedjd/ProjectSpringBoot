@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.entity.Rayon;
 import tn.esprit.spring.service.produit.IProduitService;
@@ -36,11 +39,19 @@ public class RayonRestController {
 		return "Bonjour, Bienvenue à l'application de test des Web Services";
 	}
 	
+
+	
 	@GetMapping("/findById/{id}")
 	@ResponseBody
     public Rayon findById(@PathVariable("id") Long id) {
         return iRayonService.findById(id);
           } 
+	
+	@GetMapping("/listrayon")
+	@ResponseBody
+    public List<Rayon> list() {
+        return iRayonService.findAll();
+          }
 	
 	 @PostMapping("/addrayon")
 	 @ResponseBody

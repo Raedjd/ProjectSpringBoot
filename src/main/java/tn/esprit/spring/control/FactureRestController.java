@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Client;
+import tn.esprit.spring.entity.Facture;
 import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.service.client.IClientService;
+import tn.esprit.spring.service.facture.IFactureService;
 import tn.esprit.spring.service.produit.IProduitService;
 
 @RestController
@@ -26,7 +30,7 @@ public class FactureRestController {
 		// TODO Auto-generated constructor stub
 	}
 	@Autowired
-    IProduitService iproduitService;
+    IFactureService ifactureService;
 	
 	@RequestMapping("/")
 	@ResponseBody //serialisation de l’objet en json
@@ -37,27 +41,33 @@ public class FactureRestController {
 	
 	@GetMapping("/findById/{id}")
 	@ResponseBody
-   public Produit findById(@PathVariable("id") Long id) {
-       return iproduitService.findById(id);
+   public Facture findById(@PathVariable("id") Long id) {
+       return ifactureService.findById(id);
          }
+	
+	@GetMapping("/listfacture")
+	@ResponseBody
+    public List<Facture> list() {
+        return ifactureService.findAll();
+          }
 	
 	 
 	 @PostMapping("/addfacture")
 	 @ResponseBody
-	    public Produit add(@Valid @RequestBody Produit produit) {
-	        Produit prod = iproduitService.add(produit);
-	        return prod;
+	    public Facture add(@Valid @RequestBody Facture facture) {
+	        Facture fact = ifactureService.add(facture);
+	        return fact;
 	    }
 	 
 	 @PutMapping("/update/{id}")
 	 @ResponseBody
-	    public Produit modify(@Valid @RequestBody Produit produit,@PathVariable("id") Long id) {
-	        return iproduitService.update(produit, id);
+	    public Facture modify(@Valid @RequestBody Facture facture,@PathVariable("id") Long id) {
+	        return ifactureService.update(facture, id);
 	    }
 	   @DeleteMapping("delete/{id}")
 	   @ResponseBody
-	    public void delete(@PathVariable("id") long id) {
-		   iproduitService.delete(id);
+	    public void cancelFacture(@PathVariable("id") long id) {
+		   ifactureService.cancelFacture(id);
 	    }
 
 }

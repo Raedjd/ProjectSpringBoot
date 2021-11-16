@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.service.produit.IProduitService;
 
@@ -34,6 +37,12 @@ public class ProduitRestController {
 		return "Bonjour, Bienvenue à l'application de test des Web Services";
 	}
 	
+	@GetMapping("/listproduit")
+	@ResponseBody
+    public List<Produit> list() {
+        return iProduitService.findAll();
+          }
+	
 	@GetMapping("/findById/{id}")
 	@ResponseBody
     public Produit findById(@PathVariable("id") Long id) {
@@ -52,6 +61,7 @@ public class ProduitRestController {
 	    public Produit modify(@Valid @RequestBody Produit produit,@PathVariable("id") Long id) {
 	        return iProduitService.update(produit, id);
 	    }
+	 
 	   @DeleteMapping("delete/{id}")
 	   @ResponseBody
 	    public void delete(@PathVariable("id") long id) {

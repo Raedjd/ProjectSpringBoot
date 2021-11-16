@@ -2,6 +2,7 @@ package tn.esprit.spring.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
+//ANNOTATION LOMBOK
+@Getter
+@Setter
+@ToString
+//@RequiredArgsConstructor
+//@AllArgsConstructor
+//@Data
 @Table(name="TABLE_DETAIL_PRODUIT")
 public class DetailProduit implements Serializable {
  
@@ -37,7 +49,7 @@ public class DetailProduit implements Serializable {
 		this.dateDerniereModification = dateDerniereModification;
 		this.categorieProduit = categorieProduit;
 	}
-
+   /*
 	public Long getIdDetailProduit() {
 		return idDetailProduit;
 	}
@@ -69,5 +81,5 @@ public class DetailProduit implements Serializable {
 	public void setCategorieProduit(CategorieProduit categorieProduit) {
 		this.categorieProduit = categorieProduit;
 	}
-    
+    */
 }

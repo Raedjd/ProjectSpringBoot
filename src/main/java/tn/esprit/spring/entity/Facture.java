@@ -1,7 +1,9 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,7 +31,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 //@Data
 @Table(name="TABLE_FACTURE")
 public class Facture implements Serializable {
@@ -37,31 +39,29 @@ public class Facture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFacture;
-    @NonNull
     private float montantRemise;
-    @NonNull
     private float montantFacture;
     @Temporal(TemporalType.DATE)
-    @NonNull
     private Date dateFacture;
-    @NonNull
     private Boolean active;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy="facture")
-	  private Set<DetailFacture> detailFacture;
+    private List<DetailFacture> detailFactures;
     
     @ManyToOne()
 	@JoinColumn(name = "idClient")
 	private Client client;
-   /* 
-    public Facture() {};
+   
+  //  public Facture() {};
 	public Facture(float montantRemise, float montantFacture, Date dateFacture, Boolean active) {
 		super();
 		this.montantRemise = montantRemise;
 		this.montantFacture = montantFacture;
 		this.dateFacture = dateFacture;
 		this.active = active;
+		detailFactures = new ArrayList<>();
 	}
+	/* 
 	public Long getIdFacture() {
 		return idFacture;
 	}

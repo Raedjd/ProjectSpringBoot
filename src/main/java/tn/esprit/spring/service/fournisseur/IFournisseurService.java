@@ -12,4 +12,5 @@ public interface IFournisseurService {
     void delete(long id);
     List<Fournisseur> findAll();
     Fournisseur findById(Long id);
+    void assignFournisseurToProduit(Long fournisseurId, Long produitId);
 }

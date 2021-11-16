@@ -6,12 +6,9 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.DetailProduit;
 
-
 public interface IDetailProduitService {
 
-	    DetailProduit add(DetailProduit detailProduit);
-	    DetailProduit update(DetailProduit detailProduit, Long id);
-	    void delete(long id);
-	    List<DetailProduit> findAll();
-	    DetailProduit findById(Long id);
+	    DetailProduit addDetailProduit(DetailProduit dp);
+	    DetailProduit updateDetailProduit(DetailProduit dp,Long id);
+	
 }

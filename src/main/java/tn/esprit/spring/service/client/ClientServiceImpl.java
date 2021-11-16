@@ -1,13 +1,17 @@
 package tn.esprit.spring.service.client;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import tn.esprit.spring.entity.CategorieClient;
 import tn.esprit.spring.entity.Client;
+import tn.esprit.spring.entity.Facture;
 import tn.esprit.spring.repository.ClientRepository;
+import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class ClientServiceImpl implements IClientService {
@@ -24,7 +28,19 @@ public class ClientServiceImpl implements IClientService {
  
 	@Override
 	public Client update(Client client, Long id) {
-		// TODO Auto-generated method stub
+		
+		   if(clientRepository.findById(id).isPresent()){
+	            Client clt = clientRepository.findById(id).get();
+	            clt.setNom(client.getNom());
+	            clt.setPrenom(client.getPrenom());
+	            clt.setEmail(client.getEmail());
+	            clt.setPassword(client.getPassword());
+	            clt.setDateNaissance(client.getDateNaissance());
+	            clt.setProfesion(client.getProfesion());
+	            clt.setCategorieClient(client.getCategorieClient());
+	            clt.setFactures(client.getFactures());
+	            return clientRepository.save(clt);
+	        }
 		return null;
 	}
 
@@ -38,13 +54,21 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public List<Client> findAll() {
-		// TODO Auto-generated method stub
+		
 		 return clientRepository.findAll();
 	}
 
 	@Override
 	public Client findById(Long id) {
-		// TODO Auto-generated method stub
+	
 		 return clientRepository.findById(id).get();
+	}
+    
+	@Override
+	public float getChiffreAffaireParCategorieClient(CategorieClient categorieClient, Date startDate, Date endDate) {
+		 return (float) clientRepository.findAllByCategorieClient(categorieClient).stream().mapToDouble(client -> client.getFactures()
+	                        .stream().filter(facture -> facture.getDateFacture().after(startDate) && facture.getDateFacture().before(endDate))
+	                        .mapToDouble(Facture::getMontantFacture).sum())
+	                        .sum();
 	}
 }

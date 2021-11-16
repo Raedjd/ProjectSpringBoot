@@ -16,32 +16,41 @@ public class FournisseurServiceImpl implements IFournisseurService {
     
 	@Override
 	public Fournisseur add(Fournisseur fournisseur) {
-		// TODO Auto-generated method stub
 		return fournisseurRepository.save(fournisseur);
 	}
 
 	@Override
 	public Fournisseur update(Fournisseur fournisseur, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    if(fournisseurRepository.findById(id).isPresent()){
+            Fournisseur fourn = fournisseurRepository.findById(id).get();
+            fourn.setCode(fournisseur.getCode());
+            fourn.setLibelle(fournisseur.getLibelle());
+            fourn.setProduit(fournisseur.getProduit());
+            return fournisseurRepository.save(fourn);
+        }
+        return null;
+    }
+	
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
 		fournisseurRepository.deleteById(id);
 	}
 
 	@Override
 	public List<Fournisseur> findAll() {
-		// TODO Auto-generated method stub
 		return fournisseurRepository.findAll();
 	}
 
 	@Override
 	public Fournisseur findById(Long id) {
-		// TODO Auto-generated method stub
-		return fournisseurRepository.getOne(id);
+		return fournisseurRepository.findById(id).get();
+	}
+
+	@Override
+	public void assignFournisseurToProduit(Long fournisseurId, Long produitId) {
+		
+		
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.spring.entity.Client;
+import tn.esprit.spring.entity.Produit;
 import tn.esprit.spring.entity.Rayon;
 import tn.esprit.spring.repository.RayonRepository;
 
@@ -16,32 +18,33 @@ public class RayonServiceImpl implements IRayonService {
 	
 	@Override
 	public Rayon add(Rayon rayon) {
-		// TODO Auto-generated method stub
 		return rayonRepository.save(rayon);
 	}
 
 	@Override
 	public Rayon update(Rayon rayon, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		if(rayonRepository.findById(id).isPresent()){
+            Rayon ray = rayonRepository.findById(id).get();
+            ray.setCode(rayon.getCode());
+            ray.setLibelle(rayon.getLibelle());
+	            return rayonRepository.save(ray);
+	        }
+		  return null;
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
 		rayonRepository.deleteById(id);
 	}
 
 	@Override
 	public List<Rayon> findAll() {
-		// TODO Auto-generated method stub
 		return rayonRepository.findAll();
 	}
 
 	@Override
 	public Rayon findById(Long id) {
-		// TODO Auto-generated method stub
-		return rayonRepository.getOne(id);
+				return rayonRepository.findById(id).get();
 	}
 
 	

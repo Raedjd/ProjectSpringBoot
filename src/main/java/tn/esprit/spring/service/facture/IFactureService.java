@@ -9,7 +9,8 @@ import tn.esprit.spring.entity.Facture;
 public interface IFactureService {
 	    Facture add(Facture facture);
 	    Facture update(Facture facture, Long id);
-	    void delete(long id);
+	    void cancelFacture(long id);
 	    List<Facture> findAll();
 	    Facture findById(Long id);
+	    List<Facture> getFacturesByClient(Long idClient);
 }

@@ -15,32 +15,14 @@ public class DetailFactureServiceImpl implements IDetailFactureService {
     private DetailFactureRepository detailFactureRepository;
 
 	@Override
-	public DetailFacture add(DetailFacture detailFacture) {
-		// TODO Auto-generated method stub
-		 return detailFactureRepository.save(detailFacture);
+	public DetailFacture addDetailFacture(DetailFacture df) {
+		return detailFactureRepository.save(df);
 	}
 
 	@Override
-	public DetailFacture update(DetailFacture detailFacture, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteDetailFacture(Long id) {
+		 detailFactureRepository.deleteById(id);
+		
 	}
 
-	@Override
-	public void delete(long id) {
-		// TODO Auto-generated method stub
-		detailFactureRepository.deleteById(id);
-	}
-
-	@Override
-	public List<DetailFacture> findAll() {
-		// TODO Auto-generated method stub
-		return detailFactureRepository.findAll();
-	}
-
-	@Override
-	public DetailFacture findById(Long id) {
-		// TODO Auto-generated method stub
-		return detailFactureRepository.getOne(id);
-	}
 }

@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 import tn.esprit.spring.entity.DetailFacture;
 @Service
 public interface IDetailFactureService {
-	    DetailFacture add(DetailFacture detailFacture);
-	    DetailFacture update(DetailFacture detailFacture, Long id);
-	    void delete(long id);
-	    List<DetailFacture> findAll();
-	    DetailFacture findById(Long id);
+	DetailFacture addDetailFacture(DetailFacture df);
+    void deleteDetailFacture(Long id);
 }

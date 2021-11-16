@@ -1,5 +1,6 @@
 package tn.esprit.spring.control;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import tn.esprit.spring.entity.CategorieClient;
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.service.client.ClientServiceImpl;
 import tn.esprit.spring.service.client.IClientService;
@@ -45,7 +47,7 @@ public class ClientRestController {
         return iclientService.findById(id);
           }
 	
-	@GetMapping("/list")
+	@GetMapping("/listclient")
 	@ResponseBody
     public List<Client> list() {
         return iclientService.findAll();
@@ -68,6 +70,13 @@ public class ClientRestController {
 	   @DeleteMapping("delete/{id}")
 	   @ResponseBody
 	    public void delete(@PathVariable("id") long id) {
-	        iclientService.delete(id);
+	          iclientService.delete(id);
+	          log.info("Client removed!");
 	    }
+	   
+	   @GetMapping("/chiffreD'affaireParCategorie{categorieClient}")
+		@ResponseBody
+	    public float getChiffreAffaireParCategorieClient(@PathVariable("categorieClient") CategorieClient categorieClient,Date startDate,Date endDate) {
+	        return iclientService.getChiffreAffaireParCategorieClient( categorieClient,  startDate,  endDate);
+	          }
 }

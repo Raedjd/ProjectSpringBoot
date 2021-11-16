@@ -1,4 +1,4 @@
-/*
+
 package tn.esprit.spring.control;
 
 
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.esprit.spring.entity.DetailFacture;
 import tn.esprit.spring.entity.DetailProduit;
 import tn.esprit.spring.service.detailProduit.IDetailProduitService;
 
@@ -28,35 +29,24 @@ public class DetailProduitRestController {
 	
 	@Autowired
     IDetailProduitService idetailProduitService;
-	
+      
 	@RequestMapping("/")
 	@ResponseBody //serialisation de l’objet en json
 	public String welcome() { 
 		return "Bonjour, Bienvenue à l'application de test des Web Services";
 	}
-	
-	@GetMapping("/findById/{id}")
-	@ResponseBody
-    public DetailProduit findById(@PathVariable("id") Long id) {
-        return idetailProduitService.findById(id);
-          }
-	
+
 	 @PostMapping("/adddetproduit")
 	 @ResponseBody
-	    public DetailProduit add(@Valid @RequestBody DetailProduit detailProduit) {
-		 DetailProduit detprod = idetailProduitService.add(detailProduit);
-	        return detprod;
+	    public DetailProduit addDetailProduit(@Valid @RequestBody DetailProduit detproduit) {
+		 DetailProduit dproduit = idetailProduitService.addDetailProduit(detproduit);
+	        return dproduit;
 	    }
-	  
+	 
 	 @PutMapping("/update/{id}")
 	 @ResponseBody
-	    public DetailProduit modify(@Valid @RequestBody DetailProduit detailProduit,@PathVariable("id") Long id) {
-	        return idetailProduitService.update(detailProduit, id);
-	    }
-	   @DeleteMapping("delete/{id}")
-	   @ResponseBody
-	    public void delete(@PathVariable("id") long id) {
-		   idetailProduitService.delete(id);
+	    public DetailProduit modify(@Valid @RequestBody DetailProduit produit,@PathVariable("id") Long id) {
+	        return idetailProduitService.updateDetailProduit(produit, id);
 	    }
 
-} */
+} 

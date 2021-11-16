@@ -1,6 +1,9 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,8 +14,18 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
- 
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 @Entity
+//ANNOTATION LOMBOK
+@Getter
+@Setter
+@ToString
+//@RequiredArgsConstructor
+//@AllArgsConstructor
+//@Data
 @Table(name="TABLE_FOURNISSEUR")
 public class Fournisseur  implements Serializable {
     @Id
@@ -22,14 +35,16 @@ public class Fournisseur  implements Serializable {
     private String libelle;
     
     @ManyToMany(cascade = CascadeType.ALL, mappedBy="fournisseur")
-    private Set<Produit> produit;
+    private List<Produit> produit;
     
     public Fournisseur() {};
 	public Fournisseur(String code, String libelle) {
 		super();
 		this.code = code;
 		this.libelle = libelle;
+		 produit = new ArrayList<>();
 	}
+	/*
 	public Long getIdFournisseur() {
 		return idFournisseur;
 	}
@@ -48,5 +63,5 @@ public class Fournisseur  implements Serializable {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-    
+    */
 }  

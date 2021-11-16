@@ -1,6 +1,7 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
+//ANNOTATION LOMBOK
+@Getter
+@Setter
+@ToString
+//@RequiredArgsConstructor
+//@AllArgsConstructor
+//@Data
 @Table(name="TABLE_DETAIL_FACTURE")
 public class DetailFacture implements Serializable {
  
@@ -38,6 +50,7 @@ public class DetailFacture implements Serializable {
 		this.pourcentageRemise = pourcentageRemise;
 		this.montantRemise = montantRemise;
 	}
+	/*
 	public Long getIdDetailFacture() {
 		return idDetailFacture;
 	}
@@ -68,6 +81,6 @@ public class DetailFacture implements Serializable {
 	public void setMontantRemise(float montantRemise) {
 		this.montantRemise = montantRemise;
 	}
-    
+    */
     
 }

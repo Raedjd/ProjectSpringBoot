@@ -16,6 +16,8 @@ import tn.esprit.spring.entity.Profession;
 
 @Repository
 public interface ClientRepository extends JpaRepository <Client,Long> {
+	
+	 List<Client> findAllByCategorieClient(CategorieClient categorieClient);
 /*
 	//JPQL SELECT  
 	@Query("SELECT c FROM Client c WHERE c.profession= :profession")

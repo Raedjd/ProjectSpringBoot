@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.entity.DetailFacture;
+import tn.esprit.spring.entity.DetailProduit;
 import tn.esprit.spring.service.detailFacture.IDetailFactureService;
 
 @RestController
@@ -33,27 +34,20 @@ public class DetailFactureRestController {
 		return "Bonjour, Bienvenue à l'application de test des Web Services";
 	}
 	
-	@GetMapping("/findById/{id}")
-	@ResponseBody
-    public DetailFacture findById(@PathVariable("id") Long id) {
-        return idetailFactureService.findById(id);
-          }
-	
+
 	 @PostMapping("/adddetfacture")
 	 @ResponseBody
-	    public DetailFacture add(@Valid @RequestBody DetailFacture facture) {
-		 DetailFacture fact = idetailFactureService.add(facture);
-	        return fact;
+	    public DetailFacture addDetailFacture(@Valid @RequestBody DetailFacture detfacture) {
+		 DetailFacture dfacture = idetailFactureService.addDetailFacture(detfacture);
+	        return dfacture;
 	    }
 	 
-	 @PutMapping("/update/{id}")
-	 @ResponseBody
-	    public DetailFacture modify(@Valid @RequestBody DetailFacture facture,@PathVariable("id") Long id) {
-	        return idetailFactureService.update(facture, id);
-	    }
-	   @DeleteMapping("delete/{id}")
+	 @DeleteMapping("delete/{id}")
 	   @ResponseBody
-	    public void delete(@PathVariable("id") long id) {
-		   idetailFactureService.delete(id);
+	    public void deleteDetailFacture(@PathVariable("id") long id) {
+		 idetailFactureService.deleteDetailFacture(id);
+	         
 	    }
+	
+
 }
