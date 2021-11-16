@@ -1,5 +1,5 @@
 package tn.esprit.spring.service.stock;
-
+        
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
