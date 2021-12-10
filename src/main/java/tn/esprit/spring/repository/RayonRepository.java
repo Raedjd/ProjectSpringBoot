@@ -8,3 +8,4 @@ import tn.esprit.spring.entity.Rayon;
 public interface RayonRepository extends JpaRepository <Rayon,Long> {
  
 }
+ 
