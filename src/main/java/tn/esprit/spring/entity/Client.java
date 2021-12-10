@@ -47,7 +47,7 @@ public class Client implements Serializable {
      private Date dateNaissance;
      private String email;
      private String password;
-     @Enumerated(EnumType.STRING)
+   //  @Enumerated(EnumType.STRING)
      private CategorieClient categorieClient;
      @Enumerated(EnumType.STRING)
      private Profession profesion;

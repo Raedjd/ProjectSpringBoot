@@ -74,9 +74,9 @@ public class ClientRestController {
 	          log.info("Client removed!");
 	    }
 	   
-	   @GetMapping("/chiffreD'affaireParCategorie{categorieClient}")
+	  @GetMapping("/chiffreD'affaireParCategorie{categorieClient}")
 		@ResponseBody
 	    public float getChiffreAffaireParCategorieClient(@PathVariable("categorieClient") CategorieClient categorieClient,Date startDate,Date endDate) {
 	        return iclientService.getChiffreAffaireParCategorieClient( categorieClient,  startDate,  endDate);
-	          }
+	          } 
 }

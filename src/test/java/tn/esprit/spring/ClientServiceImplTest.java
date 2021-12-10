@@ -1,4 +1,4 @@
-
+/*
 package tn.esprit.spring;
 
 
@@ -48,3 +48,4 @@ public class ClientServiceImplTest {
 	        log.info(" chiifre = " + iclientService.getChiffreAffaireParCategorieClient(CategorieClient.Fidele, new Date(100, Calendar.NOVEMBER, 15), new Date(150, Calendar.NOVEMBER,15)));
 	    }
 }
+*/
