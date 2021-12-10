@@ -33,7 +33,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 			filterChain.doFilter(request, response);
 			return;
 		}
-		
+		 
 		JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SecParams.SECRET)).build();
 		
 		jwt = jwt.substring(SecParams.PREFIX.length());
