@@ -21,7 +21,7 @@ import tn.esprit.spring.entity.CategorieClient;
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.service.client.ClientServiceImpl;
 import tn.esprit.spring.service.client.IClientService;
-
+  
 @RestController
 @RequestMapping("/client")
 @Slf4j
