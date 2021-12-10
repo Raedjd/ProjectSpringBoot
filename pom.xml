@@ -58,8 +58,8 @@
 			<artifactId>java-jwt</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-	
-		
+	 
+		 
 		</dependency>
 	</dependencies>
 
