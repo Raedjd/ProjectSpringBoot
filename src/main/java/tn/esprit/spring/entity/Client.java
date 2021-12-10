@@ -32,7 +32,7 @@ import lombok.ToString;
 @ToString
 //@RequiredArgsConstructor
 //@AllArgsConstructor
-//@Data
+//@Data 
 @Table(name="TABLE_CLIENT")
 public class Client implements Serializable {
  
