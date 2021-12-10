@@ -6,3 +6,4 @@ public interface SecParams {
 	public static final String PREFIX = "Bearer ";
 
 }
+ 
