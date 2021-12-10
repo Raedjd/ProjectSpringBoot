@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
-
+ 
 	@Override
 	public User findUserByUsername(String username) {
 			return userRepository.findByUsername(username);
