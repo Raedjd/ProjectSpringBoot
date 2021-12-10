@@ -19,7 +19,7 @@ public class FactureServiceImpl implements IFactureService {
 	public Facture add(Facture facture) {
 		return factureRepository.save(facture);
 	}
-
+ 
 	@Override
 	public Facture update(Facture facture, Long id) {
 		  if(factureRepository.findById(id).isPresent()){

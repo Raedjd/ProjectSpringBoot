@@ -14,3 +14,4 @@ public interface IFactureService {
 	    Facture findById(Long id);
 	    List<Facture> getFacturesByClient(Long idClient);
 }
+ 
