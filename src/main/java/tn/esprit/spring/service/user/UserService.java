@@ -13,4 +13,4 @@ public interface UserService {
 	User addRoleToUser(String username, String rolename);
 	List<User> findAllUsers();
 
-}
+} 
