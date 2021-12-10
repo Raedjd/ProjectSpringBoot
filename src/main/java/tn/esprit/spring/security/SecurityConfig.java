@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-
+ 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
